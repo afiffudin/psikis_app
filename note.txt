@@ -1,4 +1,5 @@
 ## semua migration dalam kontainer laravel. Untuk cek bisa menggunakan docker-compose exec laravel bash
+## untuk masuk ke dalam file di kontainer laravel menggunakan nano nama file ( nano file.php), di ikuti ctrl + O untuk edit, dan ctrl + X, kemudian pilih Y untuk simpan, untuk cancel dan enter untuk simpan
 ## untuk remove kontainer docker-compose down
 ## untuk menjalankan kontainer docker-compose up --build / docker-compose up -d /
 ## untuk melihahat kontainer yang sedang berjalan docker-compose ps
