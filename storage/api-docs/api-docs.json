@@ -1,0 +1,78 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Psikologi Mandiri",
+        "description": "Dokumentasi API untuk aplikasi psikologi mandiri",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "/api",
+            "description": "API Server"
+        }
+    ],
+    "paths": {
+        "/modules": {
+            "get": {
+                "tags": [
+                    "Modules"
+                ],
+                "summary": "Dapatkan daftar modul",
+                "description": "Mengembalikan daftar modul yang tersedia",
+                "operationId": "getModulesList",
+                "responses": {
+                    "200": {
+                        "description": "Sukses",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Module"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Module": {
+                "title": "Module",
+                "description": "Model Module",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "title": {
+                        "type": "string",
+                        "example": "Managing Stress"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "Learn how to manage stress effectively"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Modules",
+            "description": "Modules"
+        }
+    ]
+}
