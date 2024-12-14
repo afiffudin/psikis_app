@@ -4,6 +4,9 @@
 
 @section('content')
 <form id="soalForm" action="{{ route('questions.questionstore') }}" method="POST">
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     @csrf
     <div class="table-container">
         <h4 class="mb-4">Daftar Soal Psikologi Mandiri</h4>
@@ -65,8 +68,17 @@
             alertBox.style.display = 'block'; // Tampilkan notifikasi
         } else {
             alertBox.style.display = 'none';  // Sembunyikan notifikasi jika semua dijawab
+
+               // Tampilkan popup SweetAlert2
+               Swal.fire({
+                title: 'Berhasil!',
+                text: 'Jawaban Anda berhasil disimpan.',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            }).then(() => {
             // Submit form secara manual
             document.getElementById('soalForm').submit();
+        });
         }
     });
 </script>

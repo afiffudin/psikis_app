@@ -32,7 +32,7 @@ Route::post('/soal', [QuestionController::class, 'questionstore'])->name('questi
     Route::apiResource('sessions', SessionController::class);
 // Rute untuk Dashboard
 Route::get('/dashboard', function () {
-    return view('questions/form');
+    return view('questions/dashboard');
 })->middleware(['auth']);
 
 Route::get('/modules', function () {

@@ -9,8 +9,8 @@
     <h1>Daftar Soal Psikologi Mandiri</h1>
 
     <form action="{{ route('questions.questionstore') }}" method="POST">
-    @csrf
-    @foreach($questions as $question)
+   ` @csrf
+    @foreach($questions as $question)`
         <div>
             <p><strong>{{ $question->question }}</strong></p>
             <label>
