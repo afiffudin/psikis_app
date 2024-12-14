@@ -56,10 +56,10 @@ class ModuleController extends Controller
         $module = Module::create($request->validated());
         return response()->json($module, 201);
 
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
-        ]);
+        // $validated = $request->validate([
+        //     'title' => 'required|string|max:255',
+        //     'description' => 'nullable|string',
+        // ]);
 
         $module = Module::create($validated);
         return response()->json($module, 201);

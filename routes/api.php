@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\QuestionController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,19 +18,14 @@ use App\Http\Controllers\UserController;
 */
 Route::apiResource('modules', ModuleController::class);
 Route::post('register', [AuthController::class, 'register']);
-Route::post('login', [AuthController::class, 'login']);
-Route::middleware('auth:sanctum')->post('logout', [AuthController::class, 'logout']);
-Route::middleware('auth:sanctum')->get('/dashboard', function (Request $request) {
-    $user = $request->user();
-
-    $stats = [
-        'total_sessions' => $user->sessions()->count(),
-        'average_quiz_score' => round($user->quizResults()->avg('score'), 2),
-        'total_notes' => $user->progressNotes()->count(),
-    ];
-
-    return response()->json($stats, 200);
+Route::post('/login', [AuthController::class, 'login']);
+// Route::apiResource('questions', QuestionController::class);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/questions', [QuestionController::class, 'index']);
+    Route::post('/questions', [QuestionController::class, 'store']);
+    Route::delete('/questions/{question}', [QuestionController::class, 'destroy']);
 });
+
 Route::middleware('auth:sanctum')->post('/send-reminder', [UserController::class, 'sendReminder']);
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

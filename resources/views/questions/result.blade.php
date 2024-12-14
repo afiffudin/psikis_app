@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hasil Jawaban Anda</title>
+    <a href="{{ url('/questions') }}" class="btn btn-primary">
+    <i class="fas fa-arrow-left"></i> Kembali ke Dashboard
+</a>
+
 </head>
 <body>
     <h1>Hasil Jawaban Anda</h1>
